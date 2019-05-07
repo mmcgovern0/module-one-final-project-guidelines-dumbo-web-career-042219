@@ -7,3 +7,5 @@ gem "pry"
 gem "rest-client"
 gem "tty-prompt"
 gem "require_all"
+require 'nokogiri'
+require 'open-uri'

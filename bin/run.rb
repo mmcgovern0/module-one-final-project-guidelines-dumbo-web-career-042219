@@ -23,7 +23,8 @@ end
 
 ## start of dream team home page ##
 def home
-	
+	system("clear")
+
 	prompt = TTY::Prompt.new
 
 	puts "2k19 Dream Team"
@@ -42,6 +43,8 @@ end
 
 ## start of draft page ##
 def enter_draft 
+	system("clear")
+
 	prompt = TTY::Prompt.new
 
 	puts "Welcome to the Dream Team Draft"
@@ -60,6 +63,7 @@ end
 
 ## start of point guard draft ##
 def draft_point_guard
+	system("clear")
 
 	prompt = TTY::Prompt.new
 
@@ -84,6 +88,7 @@ end
 
 ## start of shooting guard draft ##
 def draft_shooting_guard
+	system("clear")
 
 	prompt = TTY::Prompt.new
 	
@@ -108,6 +113,7 @@ end
 
 ## start of the small forward draft ##
 def draft_small_forward
+	system("clear")
 
 	prompt = TTY::Prompt.new
 	
@@ -132,6 +138,7 @@ end
 
 ## start of the power forward draft ##
 def draft_power_forward
+	system("clear")
 
 	prompt = TTY::Prompt.new
 	
@@ -156,6 +163,7 @@ end
 
 ## start of the center draft ##
 def draft_center
+	system("clear")
 
 	prompt = TTY::Prompt.new
 	
@@ -179,6 +187,7 @@ end
 
 
 def view_dream_team
+	system("clear")
 	prompt = TTY::Prompt.new
 
 	puts "PG: #{DreamTeam.all[0]}\n" "SG: #{DreamTeam.all[1]}\n" "SF: #{DreamTeam.all[2]}\n" "PF: #{DreamTeam.all[3]}\n" "C: #{DreamTeam.all[4]}\n"
