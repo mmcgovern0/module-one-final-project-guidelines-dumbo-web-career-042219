@@ -24,7 +24,6 @@ end
 ## start of dream team home page ##
 def home
 	
-
 	prompt = TTY::Prompt.new
 
 	puts "2k19 Dream Team"
@@ -77,7 +76,7 @@ def draft_point_guard
 		"Jrue Holiday"
 	]
 
-	prompt.select('Choose your favorite Point Guard', point_guard, cycle: true)
+	DreamTeam.all << prompt.select('Choose your favorite Point Guard', point_guard, cycle: true)
 end
 ## end of point guard draft ##
 
@@ -101,7 +100,7 @@ def draft_shooting_guard
 		'Zach LaVine'
 	]
 
-	prompt.select('Choose your favorite Shooting Guard', shooting_guard, cycle: true)
+	DreamTeam.all << prompt.select('Choose your favorite Shooting Guard', shooting_guard, cycle: true)
 end
 ## end of shooting guard draft ##
 
@@ -125,7 +124,7 @@ def draft_small_forward
 		{ name: 'Brandon Ingram', disabled: '(injury)' }
 	]
 
-	prompt.select('Choose your favorite Small Forward', small_forward, cycle: true)
+	DreamTeam.all << prompt.select('Choose your favorite Small Forward', small_forward, cycle: true)
 end
 ## end of the small forward draft ##
 
@@ -149,7 +148,7 @@ def draft_power_forward
 		'Montrezl Harrell'
 	]
 
-	prompt.select('Choose your favorite Power Forward', power_forward, cycle: true)
+	DreamTeam.all << prompt.select('Choose your favorite Power Forward', power_forward, cycle: true)
 end
 ## end of the power forward draft ##
 
@@ -173,9 +172,20 @@ def draft_center
 		{ name: 'Jusuf Nurkic', disabled: '(injury)' }
 	]
 
-	prompt.select('Choose your favorite Center', center, cycle: true)
+	DreamTeam.all << prompt.select('Choose your favorite Center', center, cycle: true)
 end
 ## end of the center draft ##
+
+
+
+def view_dream_team
+	prompt = TTY::Prompt.new
+
+	puts "PG: #{DreamTeam.all[0]}\n" "SG: #{DreamTeam.all[1]}\n" "SF: #{DreamTeam.all[2]}\n" "PF: #{DreamTeam.all[3]}\n" "C: #{DreamTeam.all[4]}\n"
+
+	prompt.yes?("Is this the team you wanted?") 
+end
+
 welcome
 home 
 enter_draft
@@ -184,3 +194,4 @@ draft_shooting_guard
 draft_small_forward
 draft_power_forward
 draft_center
+view_dream_team
