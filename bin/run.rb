@@ -61,6 +61,20 @@ end
 
 
 
+## start of viewing free agents ##
+
+def view_free_agent
+	# system("clear")
+
+	prompt = TTY::Prompt.new
+
+	table = TTY::Table.new ['Point Guard','Shooting Guard', 'Small Forward', 'Power Forward', 'Center'], [['Stephen Curry', 'James Harden', 'Giannis Antetokounmpo', 'Anthony Davis', 'Joel Embiid'], ['Damian Lillard', 'Bradley Beal', 'LeBron James', 'Kristaps Porzingis', 'Nikola Jokic'], ['Kyrie Irving', 'Devin Booker', 'Kawhi Leonard', 'LaMarcus Aldridge', 'Karl-Anthony Towns'], ['Russell Westbrook', 'Jimmy Butler', 'Kevin Durant', 'Blake Griffin', 'Rudy Gobert'], ['John Wall', 'Klay Thompson', 'Paul George', 'Julius Randle', 'Andre Drummond'], ['Kemba Walker', 'DeMar DeRozan', 'Ben Simmons', 'Pascal Siakam', 'Clint Capela'], ['Chris Paul', 'Donovan Mitchell', 'Danilo Gallinari', 'Tobias Harris', 'Nikola Vucevic'], ["D'Angelo Russell", 'Luka Doncic', 'Jayson Tatum', 'Kevin Love', 'Al Horford'], ['Mike Conley', 'Victor Oladipo', 'Bojan Bogdanovic', 'John Collins', 'DeMarcus Cousins'], ['Jrue Holiday', 'Zach LaVine', 'Brandon Ingram', 'Montrezl Harrell', 'Jusuf Nurkic']]
+	table
+end
+
+## end of viewing free agents ##
+
+
 ## start of point guard draft ##
 def draft_point_guard
 	system("clear")
@@ -185,7 +199,7 @@ end
 ## end of the center draft ##
 
 
-
+## view the dream team ##
 def view_dream_team
 	system("clear")
 	prompt = TTY::Prompt.new
@@ -194,13 +208,15 @@ def view_dream_team
 
 	prompt.yes?("Is this the team you wanted?") 
 end
+## end of view the dream team ##
 
-welcome
-home 
-enter_draft
-draft_point_guard
-draft_shooting_guard
-draft_small_forward
-draft_power_forward
-draft_center
-view_dream_team
+# welcome
+# home
+# enter_draft
+view_free_agent
+# draft_point_guard
+# draft_shooting_guard
+# draft_small_forward
+# draft_power_forward
+# draft_center
+# view_dream_team
