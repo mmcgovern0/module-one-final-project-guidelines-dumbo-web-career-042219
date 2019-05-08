@@ -10,3 +10,4 @@ gem "require_all"
 require 'nokogiri'
 require 'open-uri'
 gem 'tty-table'
+gem "colorize"

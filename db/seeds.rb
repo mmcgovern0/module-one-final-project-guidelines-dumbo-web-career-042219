@@ -1,6 +1,6 @@
-User.destroy_all
-DreamTeam.destroy_all
-Player.destroy_all
+# User.destroy_all
+# DreamTeam.destroy_all
+# Player.destroy_all
 
 ## start of point guards ##
 
@@ -50,6 +50,7 @@ bojan = Player.create(name: "Bojan Bogdanovic", position: "SF", rating: 83)
 brandon = Player.create(name: "Brandon Ingram", position: "SF", rating: 81)
 
 ## end of small forwards ##
+
 
 
 ## start of power forwards ##

@@ -4,7 +4,6 @@ class Players < ActiveRecord::Migration[5.0]
 			t.string :name
 			t.string :position
 			t.integer :rating
-			t.integer :dream_team_id
 		end
 	end
 end

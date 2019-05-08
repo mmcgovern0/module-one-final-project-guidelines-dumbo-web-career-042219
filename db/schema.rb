@@ -13,26 +13,19 @@
 ActiveRecord::Schema.define(version: 20190507181300) do
 
   create_table "dream_teams", force: :cascade do |t|
-    t.string  "name"
-    t.integer "pg_id"
-    t.integer "sg_id"
-    t.integer "sf_id"
-    t.integer "pf_id"
-    t.integer "c_id"
-    t.boolean "win_loss"
+    t.integer "player_id"
     t.integer "user_id"
+    t.boolean "win_loss"
   end
 
   create_table "players", force: :cascade do |t|
     t.string  "name"
     t.string  "position"
     t.integer "rating"
-    t.integer "dream_team_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "name"
-    t.integer "dream_team_id"
+    t.string "name"
   end
 
 end
