@@ -3,7 +3,17 @@ class Player < ActiveRecord::Base
 	has_many :dream_teams
 	has_many :users, through: :dream_teams
 
+	@@all = []
 
+	def initialize(name)
+		@name = name
+		@position = position
+		@rating = rating
+	end
+
+	def self.all
+		@@all
+	end
 
 	## creates an array of player positions ##
 	pg = ['Stephen Curry', 'Damian Lillard', 'Kyrie Irving', 'Russell Westbrook', 'John Wall', 'Kemba Walker', 'Chris Paul', "D'Angelo Russell", 'Mike Conley', 'Jrue Holiday']
