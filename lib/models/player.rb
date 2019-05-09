@@ -4,14 +4,14 @@ class Player < ActiveRecord::Base
 	has_many :users, through: :dream_teams
 
 	## find player instances ##
-	def self.find_player(name)
-		self.all.find_by(name: "#{name}")
-	end
-	## end find player instances ##
+	# def self.find_player(name)
+	# 	self.all.find_by(name: "#{name}")
+	# end
+	# ## end find player instances ##
 
-	def self.find_player_id(name)
-		self.all.find_by(name: "#{name}").id
-	end
+	# def self.find_player_id(name)
+	# 	self.all.find_by(name: "#{name}").id
+	# end
 
 
 	# ## creates an array of player positions ##
