@@ -1,9 +1,7 @@
 require_relative '../config/environment'
 
-
-
 ## start of welcome page ##
-def user_name
+def welcome
 	system("clear")
 
 	prompt = TTY::Prompt.new
@@ -17,6 +15,7 @@ def user_name
 	end
 	User.create(name: username)
 	@@current_user = User.find_by(name: username)
+	home
 end
 ## end of welcome page ##
 
@@ -32,10 +31,15 @@ def home
 	time = Time.new
 	puts "Draft Day " + time.inspect
 
-	prompt.select("Ready to ball?") do |menu|
+	choice = prompt.select("Ready to ball?") do |menu|
 		menu.choice 'Enter Draft', 1
-		menu.choice 'View Dream Teams', 2
-		menu.choice 'exit', 3
+		menu.choice 'Exit', 2
+	end
+
+	if choice == 1
+		enter_draft
+	else
+		exit_dt
 	end
 end
 ## end of home page ##
@@ -45,31 +49,41 @@ end
 ## start of draft page ##
 def enter_draft 
 	system("clear")
-
 	prompt = TTY::Prompt.new
 
 	puts "Welcome to the Dream Team Draft"
-	prompt.select("Create your Dream Team:") do |menu|
+	choice = prompt.select("Create your Dream Team:") do |menu|
 		menu.choice 'Draft a new Dream Team', 1
 		menu.choice 'View Dream Team', 2
 		menu.choice 'Trade Players', 3
 		menu.choice 'Delete Dream Team', 4
-		menu.choice 'Home', 5
+		menu.choice 'Exit', 5
 	end
 
+	if choice == 1
+		draft_point_guard
+	elsif choice == 2
+		view_dream_team
+	elsif choice == 3
+		update_pg	
+	elsif choice == 4
+		destroy_dt
+	else
+		exit_dt
+	end			
 end
 ## end of draft page ##
 
 
 
-## test new dream team ##
+## new dream team ##
 def new_dream_team(name)
 	new_team = DreamTeam.new
 	new_team.user_id = @@current_user.id
 	new_team.player_id = Player.find_by(name: "#{name}").id
 	new_team.save
 end
-## end test ##
+## end new dream team ##
 
 
 
@@ -83,8 +97,8 @@ def draft_point_guard
 
 	name = ""
 	name = prompt.select('Choose your favorite Point Guard', point_guard, cycle: true)
-
 	new_dream_team(name)
+	draft_shooting_guard
 	name
 end
 ## end of point guard draft ##
@@ -101,8 +115,8 @@ def draft_shooting_guard
 
 	name = ""
 	name = prompt.select('Choose your favorite Shooting Guard', shooting_guard, cycle: true)
-	
 	new_dream_team(name)
+	draft_small_forward
 	name
 end
 ## end of shooting guard draft ##
@@ -119,8 +133,8 @@ def draft_small_forward
 
 	name = ""
 	name = prompt.select('Choose your favorite Small Forward', small_forward, cycle: true)
-	
 	new_dream_team(name)
+	draft_power_forward
 	name
 end
 ## end of the small forward draft ##
@@ -135,11 +149,10 @@ def draft_power_forward
 	
 	power_forward = ['Anthony Davis', { name: 'Kristaps Porzingis', disabled: '(injury)' }, 'LaMarcus Aldridge', 'Blake Griffin', 'Julius Randle', 'Pascal Siakam', 'Tobias Harris', 'Kevin Love', 'John Collins', 'Montrezl Harrell']
 
-
 	name = ""
 	name = prompt.select('Choose your favorite Power Forward', power_forward, cycle: true)
-	
 	new_dream_team(name)
+	draft_center
 	name
 end
 ## end of the power forward draft ##
@@ -156,25 +169,67 @@ def draft_center
 
 	name = ""
 	name = prompt.select('Choose your favorite Center', center, cycle: true)
-
 	new_dream_team(name)
+	confirm_dream_team
 	name
 end
+
 ## end of the center draft ##
 
 
 
-## view the dream team ##
-def confirm_dream_team(pg, sg, sf, pf, c)
+## confirm the dream team ##
+def confirm_dream_team
 	system("clear")
+
+	user_id = @@current_user.id
+	user_dream_team = DreamTeam.where(user_id: user_id)
+	player_id = user_dream_team.map {|object| object.player_id}
+	player_name = player_id.map do |player|
+		Player.find_by(id: "#{player}").name
+	end
+
 	prompt = TTY::Prompt.new
 
 	puts "Here is the your Dream Team\n"
-	puts "PG: #{pg}\n" "SG: #{sg}\n" "SF: #{sf}\n" "PF: #{pf}\n" "C: #{c}\n"
+	puts "PG: #{player_name[0]}\n" "SG: #{player_name[1]}\n" "SF: #{player_name[2]}\n" "PF: #{player_name[3]}\n" "C: #{player_name[4]}\n"
 
-	prompt.yes?("Is this the team you wanted?") 
+	y_n = prompt.yes?("Is this the team you wanted?") 
+
+	if y_n == true
+		view_dream_team
+	else y_n == false
+		update_pg
+	end
+
 end
-## end of view the dream team ##
+## end of confirm the dream team ##
+
+
+
+## view dream team ##
+def view_dream_team
+	user_id = @@current_user.id
+	user_dream_team = DreamTeam.where(user_id: user_id)
+	player_id = user_dream_team.map {|object| object.player_id}
+	player_name = player_id.map do |player|
+		Player.find_by(id: "#{player}").name
+	end
+	puts "Here is your Dream Team"
+	sleep 1
+	puts "Starting Point Guard: #{player_name[0]}\n"
+	sleep 1
+	puts "Starting Shooting Guard: #{player_name[1]}\n"
+	sleep 1
+	puts "Starting Small Forward: #{player_name[2]}\n"
+	sleep 1
+	puts "Starting Power Forward: #{player_name[3]}\n"
+	sleep 1
+	puts "Starting Center: #{player_name[4]}"
+	sleep 1
+	home
+end
+## end view dream team ##
 
 
 ## destroy prompt ##
@@ -187,9 +242,19 @@ end
 
 # destroy Dream Team prompt##
 def destroy_dt
-	user_id = @@current_user.id
-	user_dream_team = DreamTeam.where(user_id: user_id)
-	user_dream_team.destroy_all
+	system("clear")
+
+	prompt = TTY::Prompt.new
+
+	y_n = prompt.yes?("Are you sure you want to delete your Dream Team?")
+
+	if y_n == true
+		user_id = @@current_user.id
+		user_dream_team = DreamTeam.where(user_id: user_id)
+		user_dream_team.destroy_all
+	else y_n == false
+		home
+	end
 end
 ## end destroy Dream Team ##
 
@@ -209,6 +274,7 @@ def update_pg
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[0].update(player_id: update_id)
+	update_sg
 end
 ## end update pg ##
 
@@ -228,6 +294,7 @@ def update_sg
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[1].update(player_id: update_id)
+	update_sf
 end
 ## end update sg ##
 
@@ -247,6 +314,7 @@ def update_sf
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[2].update(player_id: update_id)
+	update_pf
 end
 ## end update sf ##
 
@@ -266,6 +334,7 @@ def update_pf
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[3].update(player_id: update_id)
+	update_c
 end
 ## end update pf ##
 
@@ -285,22 +354,20 @@ def update_c
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[4].update(player_id: update_id)
+	confirm_dream_team
 end
 ## end update c ##
 
 
 
-user_name
-home
-enter_draft
-pg = draft_point_guard
-sg = draft_shooting_guard
-sf = draft_small_forward
-pf = draft_power_forward
-c = draft_center
-update_pg
-update_sg
-update_sf
-update_pf
-update_c
-# confirm_dream_team(pg, sg, sf, pf, c)
+## start of exit prompt ##
+def exit_dt
+	system("clear")
+  	puts "Thanks for playing DT 2k19"
+  	system("clear")
+  	system("^C")
+end
+## end of exit prompt ##
+
+
+welcome
