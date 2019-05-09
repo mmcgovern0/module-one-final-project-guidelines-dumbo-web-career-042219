@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20190507181300) do
   create_table "dream_teams", force: :cascade do |t|
     t.integer "player_id"
     t.integer "user_id"
-    t.boolean "win_loss"
   end
 
   create_table "players", force: :cascade do |t|
@@ -26,7 +25,6 @@ ActiveRecord::Schema.define(version: 20190507181300) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "password"
   end
 
 end

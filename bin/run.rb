@@ -65,7 +65,7 @@ def enter_draft
 	elsif choice == 2
 		view_dream_team
 	elsif choice == 3
-		update_pg	
+		update_positions	
 	elsif choice == 4
 		destroy_dt
 	else
@@ -199,7 +199,7 @@ def confirm_dream_team
 	if y_n == true
 		view_dream_team
 	else y_n == false
-		update_pg
+		update_positions
 	end
 
 end
@@ -209,6 +209,7 @@ end
 
 ## view dream team ##
 def view_dream_team
+
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	player_id = user_dream_team.map {|object| object.player_id}
@@ -226,7 +227,7 @@ def view_dream_team
 	puts "Starting Power Forward: #{player_name[3]}\n"
 	sleep 1
 	puts "Starting Center: #{player_name[4]}"
-	sleep 1
+	sleep 3
 	home
 end
 ## end view dream team ##
@@ -252,12 +253,46 @@ def destroy_dt
 		user_id = @@current_user.id
 		user_dream_team = DreamTeam.where(user_id: user_id)
 		user_dream_team.destroy_all
+		puts "Your Dream Team was successfully deleted"
+		sleep 2
+		home
 	else y_n == false
 		home
 	end
 end
 ## end destroy Dream Team ##
 
+
+### update positions ###
+def update_positions
+	system("clear")
+	
+	prompt = TTY::Prompt.new
+
+	choice = prompt.select("What Position do you need a new player") do |menu|
+		menu.choice 'Point Guard', 1
+		menu.choice 'Shooting Guard', 2
+		menu.choice 'Small Forward', 3
+		menu.choice 'Power Forward', 4
+		menu.choice 'Center', 5
+		menu.choice 'Done', 6
+	end
+
+	if choice == 1
+		update_pg
+	elsif choice == 2
+		update_sg
+	elsif choice == 3
+		update_sf	
+	elsif choice == 4
+		update_pf
+	elsif choice == 5
+		update_c
+	else choice == 6
+		home
+	end			
+end
+### update positions ###
 
 
 ## update pg ##
@@ -274,7 +309,7 @@ def update_pg
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[0].update(player_id: update_id)
-	update_sg
+	update_positions
 end
 ## end update pg ##
 
@@ -294,7 +329,7 @@ def update_sg
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[1].update(player_id: update_id)
-	update_sf
+	update_positions
 end
 ## end update sg ##
 
@@ -314,7 +349,7 @@ def update_sf
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[2].update(player_id: update_id)
-	update_pf
+	update_positions
 end
 ## end update sf ##
 
@@ -334,7 +369,7 @@ def update_pf
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[3].update(player_id: update_id)
-	update_c
+	update_positions
 end
 ## end update pf ##
 
@@ -354,7 +389,7 @@ def update_c
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	user_dream_team[4].update(player_id: update_id)
-	confirm_dream_team
+	update_positions
 end
 ## end update c ##
 
