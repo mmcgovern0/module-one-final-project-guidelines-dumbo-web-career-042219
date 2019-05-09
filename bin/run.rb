@@ -3,23 +3,88 @@ require_relative '../config/environment'
 
 
 ## start of welcome page ##
-def user_name
+def welcome
 	system("clear")
 
 	prompt = TTY::Prompt.new
-	username = ""
+	
 
-	puts "🏀 Welcome to 2k19 Dream Team! 🏀"
-	puts "⛹ Choose your favorite ballers to battle head to head ⛹"
+	puts "🏀  	🏀	🏀	DreamTeam 2k19	🏀	🏀	 🏀"
+	puts "⛹ Choose your favorite NBA All-Stars to creat your dream team ⛹"
 
-	prompt.collect do 
-		username = key(:name).ask("What is your name?", required: true, validate: /\A\w+\Z/)
-	end
-	User.create(name: username)
-	@@current_user = User.find_by(name: username)
+  user_selection = prompt.select("Welcome", %w(Login Signup Exit))
+
+  if user_selection == 'Login'
+    test_login
+  elsif user_selection == 'Signup'
+    test_signup
+  else
+    exit_dt
+  end
 end
 
 ## end of welcome page ##
+
+
+##///////////////test
+def test_signup
+	system("clear")
+
+    prompt = TTY::Prompt.new
+    bball = prompt.decorate('🏀')
+
+    prompt.collect do
+    	username = key(:name).ask("username.", required: true)
+    	if User.find_by(name: username)
+		    counter = 3
+		    until counter == 1 || !User.find_by(name: username)
+		    	puts "username unavailable"
+		    	counter -= 1
+		    	username = key(:name).ask("username unavailable #{counter} attempt(s) left.", required: true)
+		    end
+		    if counter == 1
+		    	puts "username unavailable"
+		    	welcome
+		    end
+		end
+    end
+end
+
+
+def test_login
+  system("clear")
+
+  prompt = TTY::Prompt.new
+  bball = prompt.decorate('⍜🏀⍜')
+  prompt.collect do
+
+	username = ""
+    username = key(:name).ask("username", required: true)
+
+      	if !User.find_by(name:username)
+        	puts "try again♺"
+        	welcome
+      	elsif User.find_by(name: username)
+      		user_password = key(:password).mask("password", required: true, mask:bball)
+        elsif !User.find_by(password: password)
+            	puts "try again♺"
+            	welcome
+        else
+        	@@current_user = User.find_by(name: username)
+            home
+        end
+    end
+end
+
+
+
+welcome
+test_signup
+test_login
+home
+binding.pry
+0
+##///////////////end 
 
 
 
@@ -314,20 +379,12 @@ def view_dream_team(pg, sg, sf, pf, c)
 		menu.choice 'Home', 3
 	end
 
-	# if user_selection == 'Ball Out'
-	# 	#play_sim
-	# elsif user_selection 'Trade Players'
-	# 	#update_dream_team
-	# else
-	# 	home
-	# end
-	case user_selection
-		when 1
-		  #play_sim
-		when 2
-		  #update_dream_team
-		when 3
-		  home
+	if user_selection == 'Ball Out'
+		#play_sim
+	elsif user_selection 'Trade Players'
+		#update_dream_team
+	else
+		home
 	end
 			
 
@@ -337,26 +394,26 @@ end
 
 
 ## start of exit prompt ##
-def exit_cli
-  system("clear")
-  puts "Good Game"
-  system("clear")
-  system("^C")
+def exit_dt
+	system("clear")
+  	puts "Thanks for playing DT 2k19"
+  	system("clear")
+  	system("^C")
 end
 ## end of exit prompt ##
 
 
 
-user_name
+log_in
 home
-enter_draft
-pg = draft_point_guard
-sg = draft_shooting_guard
-sf = draft_small_forward
-pf = draft_power_forward
-c = draft_center
-confirm_dream_team(pg, sg, sf, pf, c)
-view_dream_team(pg, sg, sf, pf, c)
+# enter_draft
+# pg = draft_point_guard
+# sg = draft_shooting_guard
+# sf = draft_small_forward
+# pf = draft_power_forward
+# c = draft_center
+# confirm_dream_team(pg, sg, sf, pf, c)
+# view_dream_team(pg, sg, sf, pf, c)
 
 
 
