@@ -2,6 +2,16 @@
 # DreamTeam.destroy_all
 # Player.destroy_all
 
+## example user ##
+user1 = User.create(name: "User 1")
+user2 = User.create(name: "User 2")
+## end user ##
+
+## example user ##
+dt1 = DreamTeam.create
+dt2 = DreamTeam.create
+## end user ##
+
 ## start of point guards ##
 
 stephen = Player.create(name: "Stephen Curry", position: "PG", rating: 95)
