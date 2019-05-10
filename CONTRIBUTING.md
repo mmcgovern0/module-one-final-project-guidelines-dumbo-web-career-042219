@@ -1,6 +1,6 @@
 # Contributing to 2k19 Dream Team
 
-We're really excited that you're about to contribute to the 2k19 Dream Team CLI Application!!!!!!!!!!!🏀
+We're really excited that you're about to contribute to the 2k19 Dream Team CLI Application!!! 🏀
 
 If this is your first time contributing, please continue reading to learn how to make the most meaningful and useful impact possible.
 
