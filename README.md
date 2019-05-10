@@ -13,7 +13,7 @@ Before we started building the application we sketched out all of the relationsh
 
 ### Models
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/A1POZO7"><a href="//imgur.com/A1POZO7"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<a href="http://tinypic.com?ref=xe4qwj" target="_blank"><img src="http://i67.tinypic.com/xe4qwj.jpg" border="0" alt="Domain Models - User, Player, DreamTeam"></a>
 
 
 ### User Stories
@@ -37,11 +37,11 @@ Before we started building the application we sketched out all of the relationsh
 
 
 ### FAQ:
-1. What players can I choose for my dream team?
+1. What players can I choose for my dream team?<br>
 	The players available are the top 10 players for all positions for the 18/19 season.
 
-2. How are the players rated?
+2. How are the players rated?<br>
 	The player ratings are related to their NBA 2k19 ratings.
 
-3. Can I get Michael Jordan on my dream team?
+3. Can I get Michael Jordan on my dream team?<br>
 	No, only the top 10 players for the 18/19 season are available to choose.
