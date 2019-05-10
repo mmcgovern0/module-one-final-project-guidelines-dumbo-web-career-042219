@@ -4,12 +4,65 @@ require_relative '../config/environment'
 def welcome
 	system("clear")
 
+	def sound
+		system("open media/dre.mp3")
+	end
+	sound
+
+	puts "██████╗ ██╗  ██╗ ██╗ █████╗     ██████╗ ██████╗ ███████╗ █████╗ ███╗   ███╗    ████████╗███████╗ █████╗ ███╗   ███╗
+╚════██╗██║ ██╔╝███║██╔══██╗    ██╔══██╗██╔══██╗██╔════╝██╔══██╗████╗ ████║    ╚══██╔══╝██╔════╝██╔══██╗████╗ ████║
+ █████╔╝█████╔╝ ╚██║╚██████║    ██║  ██║██████╔╝█████╗  ███████║██╔████╔██║       ██║   █████╗  ███████║██╔████╔██║
+██╔═══╝ ██╔═██╗  ██║ ╚═══██║    ██║  ██║██╔══██╗██╔══╝  ██╔══██║██║╚██╔╝██║       ██║   ██╔══╝  ██╔══██║██║╚██╔╝██║
+███████╗██║  ██╗ ██║ █████╔╝    ██████╔╝██║  ██║███████╗██║  ██║██║ ╚═╝ ██║       ██║   ███████╗██║  ██║██║ ╚═╝ ██║
+╚══════╝╚═╝  ╚═╝ ╚═╝ ╚════╝     ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝       ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝"
+
+	sleep 2
+
+puts "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+M..~~~~~.~~:.MMMM::::::::MMMM:::::::,M:::::::::::=NMMMMMMMMMMMM::::::::::MMMMMMM
+.$$$$$Z...$77$8MM$$$$$$$ZIMMM.$$$$$$.M7Z$$$$$$$$$$$$Z:.MMMMMMM.$$$$$$$$$Z MMMMMM
+$$$$$$+..$7777 MM$$$$$$$$.MMM.$$$$$$.M7$$$$$$$$$$$$$$$$.MMMMMM.$$$$$$$$$$.MMMMMM
+Z$$Z,...$7777$ MM$$$$$$$$ZMMM.$$$$$$.M7$$$$$$$$$$$$$$$$$.MMMMM?$$$$$$$$$$$MMMMMM
+Z$$.......777$ MM$$$$$$$$$.MM.$$$$$$.M7$$$$$$$...Z$$$$$$.MMMM:$$$$$$$$$$$$.MMMMM
+ZZ.........$7$ MM$$$$$$$$$IMM.$$$$$$.M7$$$$$$$.MM?Z$$$$$:MMMM.$$$$$Z$$$$$$.MMMMM
+$..........$7$ MM$$$$$$$$$$.M.$$$$$$.M7$$$$$$$.MMMZ$$$$$.MMMM.$$$$$I7$$$$$.MMMMM
+$.......$$.$7$ MM$$$$$$$$$$.M.$$$$$$.M7$$$$$$$.MMD$$$$$$.MMMMZ$$$$$..$$$$$ZNMMMM
+$$......$$..7$ MM$$$$$$$$$$$..$$$$$$.M7$$$$$$$....$$$$$$.MMM.$$$$$$..$$$$$$.MMMM
+$.......777.77 MM$$$$$$$$$$$,.$$$$$$.M7$$$$$$$$$$$$$$$$.MMMM.$$$$$$..$$$$$$.MMMM
+$........,.... MM$$$$$$ZZ$$$Z.$$$$$$.M7$$$$$$$$$$$$$$..MMMMM7$$$$$$D,Z$$$$$ZMMMM
+Z$............ MM$$$$$$$.$$$Z.$$$$$$.M7$$$$$$$$$$$$$$$$Z:MM.$$$$$$7MM$$$$$$$.MMM
+Z$7......7...$ MM$$$$$$$+$$$$Z$$$$$$.M7$$$$$$Z....$$$$$$ZMM $$$$$$.MM:$$$$$Z MMM
+Z$$$.....=777$ MM$$$$$$ZM.$$$$$$$$$$.M7$$$$$$$.MMM+$$$$$$.M.$$$$$$.,,.$$$$$$,MMM
+Z$$$Z.....$77$ MM$$$$$$ZM.$$$$$$$$$$.M7$$$$$$$.MMM.$$$$$$.MZ$$$$$$$$$$$$$$$$$IMM
+Z$$$$$Z....77$ MM$$$$$$ZMM:$$$$$$$$$.M7$$$$$$$.MMM.$$$$$$..$$$$$$$$$$$$$$$$$$.MM
+Z$$$$$$$I..77$ MM$$$$$$ZMM $$$$$$$$$.M7$$$$$$$.MMM:$$$$$$..Z$$$$$$$$$$$Z$$$$$.MM
+Z$$ZZ$$$$$..7$ MM$$$$$$ZMMNZ$$$$$$$$.M7$$$$$$$...7$$$$$$$.7$$$$$$.MMMM,$$$$$$$MM
+Z$..$=.7:$.$7$ MM$$$$$$ZMMM.$$$$$$$$.M7$$$$$$$$$$$$$$$$$.,$$$$$$$ MMMM.$$$$$$Z.M
+$$..7=...:$.77 MM$$$$$$ZMMM$$$$$$$$$.M7$$$$$$$$$$$$$$$$.M.$$$$$$Z.MMMM.Z$$$$$$.M
+.$Z$Z$$$Z$Z.7$8MM$$$$$$$MMMM.Z$$$$$$.M7$$$$$$$$$$$$$Z~ MM.$$$$$$$7MMMM.$$$$$$$=M
+M..~~~~~~~~,.MMMM.......MMMM,....... M............?MMMMMN........MMMMM,........,
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+
+
+
 	prompt = TTY::Prompt.new
 	username = ""
-
-	puts "🏀 Welcome to 2k19 Dream Team! 🏀"
-	puts "⛹ Choose your favorite ballers to battle head to head ⛹"
-
+	sleep 2
+	puts "🏀 Welcome to 2k19 Dream Team! 🏀\n"
+	sleep 2
+	puts "⛹ Choose your favorite ballers to battle head to head\n"
+	sleep 1
 	prompt.collect do 
 		username = key(:name).ask("What is your name?", required: true, validate: /\A\w+\Z/)
 	end
@@ -182,6 +235,11 @@ end
 def confirm_dream_team
 	system("clear")
 
+	def sound
+		system("open media/espn_alert.mp3")
+	end
+	sound
+
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	player_id = user_dream_team.map {|object| object.player_id}
@@ -210,40 +268,43 @@ end
 ## view dream team ##
 def view_dream_team
 
+	def sound
+		system("open media/playoffs.mp3")
+	end
+	sound
+
 	user_id = @@current_user.id
 	user_dream_team = DreamTeam.where(user_id: user_id)
 	player_id = user_dream_team.map {|object| object.player_id}
 	player_name = player_id.map do |player|
 		Player.find_by(id: "#{player}").name
 	end
-	puts "Here is your Dream Team"
+	puts "Here is your Dream Team "
 	sleep 1
-	puts "Starting Point Guard: #{player_name[0]}\n"
+	puts "⛹💨	Starting Point Guard: #{player_name[0]}\n"
 	sleep 1
-	puts "Starting Shooting Guard: #{player_name[1]}\n"
+	puts "⛹💨	Starting Shooting Guard: #{player_name[1]}\n"
 	sleep 1
-	puts "Starting Small Forward: #{player_name[2]}\n"
+	puts "⛹💨	Starting Small Forward: #{player_name[2]}\n"
 	sleep 1
-	puts "Starting Power Forward: #{player_name[3]}\n"
+	puts "⛹💨	Starting Power Forward: #{player_name[3]}\n"
 	sleep 1
-	puts "Starting Center: #{player_name[4]}"
+	puts "⛹💨	Starting Center: #{player_name[4]}"
 	sleep 3
 	home
 end
 ## end view dream team ##
 
 
-## destroy prompt ##
-
-
-
-## end destroy prompt ##
-
 
 
 # destroy Dream Team prompt##
 def destroy_dt
 	system("clear")
+
+	def sound
+		system("open media/yeet.mp3")
+	end	
 
 	prompt = TTY::Prompt.new
 
@@ -253,8 +314,11 @@ def destroy_dt
 		user_id = @@current_user.id
 		user_dream_team = DreamTeam.where(user_id: user_id)
 		user_dream_team.destroy_all
-		puts "Your Dream Team was successfully deleted"
-		sleep 2
+		sound
+		puts "❌❌❌Your Dream Team was successfully deleted❌❌❌"
+		sleep 1
+		puts "💀"
+		sleep 1
 		home
 	else y_n == false
 		home
@@ -398,6 +462,11 @@ end
 ## start of exit prompt ##
 def exit_dt
 	system("clear")
+
+	def sound
+		system("open media/vista.mp3")
+	end	
+	sound
   	puts "Thanks for playing DT 2k19"
   	system("clear")
   	system("^C")

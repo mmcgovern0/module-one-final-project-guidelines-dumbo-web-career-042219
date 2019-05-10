@@ -13,7 +13,7 @@ Before we started building the application we sketched out all of the relationsh
 
 ### Models
 
-(insert pic of model)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/A1POZO7"><a href="//imgur.com/A1POZO7"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 
 ### User Stories
@@ -24,27 +24,24 @@ Before we started building the application we sketched out all of the relationsh
 * As a user, I want to be able to delete the Dream Team I create
 
 
-## Instructions
+### Instructions
 
-1. Fork and clone this repository.
-2. Build your application. Make sure to commit early and commit often. Commit messages should be meaningful (clearly describe what you're doing in the commit) and accurate (there should be nothing in the commit that doesn't match the description in the commit message). Good rule of thumb is to commit every 3-7 mins of actual coding time. Most of your commits should have under 15 lines of code and a 2 line commit is perfectly acceptable.
-3. Make sure to create a good README.md with a short description, install instructions, a contributors guide and a link to the license for your code.
-4. Make sure your project checks off each of the above requirements.
-5. Prepare a video demo (narration helps!) describing how a user would interact with your working project.
-    * The video should:
-      - Have an overview of your project.(2 minutes max)
-6. Prepare a presentation to follow your video.(3 minutes max)
-    * Your presentation should:
-      - Describe something you struggled to build, and show us how you ultimately implemented it in your code.
-      - Discuss 3 things you learned in the process of working on this project.
-      - Address, if anything, what you would change or add to what you have today?
-      - Present any code you would like to highlight.   
-7. *OPTIONAL, BUT RECOMMENDED*: Write a blog post about the project and process.
+1. Enter your name to create your Dream Team.
+2. Enter Dream Team draft.
+3. Pick your favorite players for each position.
+4. Confirm your draft picks
+5. Once your Dream Team is created, you can view your Dream Team.
+6. If a user if unhappy with a draft choice, he/she can trade players.
+7. If a user wants to delete his/her Dream Team, they can.
+8. Have fun picking your favorite players 🏀 !!
 
----
-### Common Questions:
-- How do I turn off my SQL logger?
-```ruby
-# in config/environment.rb add this line:
-ActiveRecord::Base.logger = nil
-```
+
+### FAQ:
+1. What players can I choose for my dream team?
+	The players available are the top 10 players for all positions for the 18/19 season.
+
+2. How are the players rated?
+	The player ratings are related to their NBA 2k19 ratings.
+
+3. Can I get Michael Jordan on my dream team?
+	No, only the top 10 players for the 18/19 season are available to choose.
